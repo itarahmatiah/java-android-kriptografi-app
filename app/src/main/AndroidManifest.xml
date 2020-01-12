@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.androkrip">
+
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23"/>
+    <!-- <uses-sdk android:minSdkVersion="7" android:maxSdkVersion="8"/> -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_SUPERUSER" /> -->
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"
+        />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="K.S.F"
+        android:theme="@style/AppTheme"
+        android:name=".StaticApp"
+        >
+        <activity
+            android:name="MainActivity"
+            android:label="K.S.F"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="FileEncActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <data android:scheme="file" android:host="*" android:mimeType="*/*"/>
+                <!-- <data android:scheme="content" android:host="*" android:mimeType="*/*"/> -->
+                <data android:pathPattern=".*\\.enc" />
+                <data android:pathPattern=".*\\..*\\.enc"/>
+                <data android:pathPattern=".*\\..*\\..*\\.enc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.enc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.enc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.enc"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AboutActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".helpActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+
+        <activity
+            android:name="ext.com.nononsenseapps.filepicker.FilePickerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/FilePicker.Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
